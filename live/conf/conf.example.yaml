@@ -1,0 +1,6 @@
+app:
+  name: api-server
+  addr: 9011
+  debug: true
+  read_timeout: 10s
+  write_timeout: 10s
