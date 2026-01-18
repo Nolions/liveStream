@@ -24,6 +24,7 @@ func (app App) router(e *gin.Engine) {
 		event.POST("on_done", exception.ErrHandler(app.doneEvent))
 		event.POST("on_play", exception.ErrHandler(app.playEvent))
 		event.POST("on_play_done", exception.ErrHandler(app.playDoneEvent))
+		event.POST("on_update", exception.ErrHandler(app.updateEvent))
 	}
 }
 
@@ -63,5 +64,10 @@ func (app App) playEvent(c *gin.Context) error {
 
 func (app App) playDoneEvent(c *gin.Context) error {
 	log.Info("playDoneEvent")
+	return nil
+}
+
+func (app App) updateEvent(c *gin.Context) error {
+	log.Info("updateEvent")
 	return nil
 }
