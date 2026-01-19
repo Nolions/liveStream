@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"live/conf"
 	log "live/internal/helper"
+	"live/internal/service"
 	"net/http"
 	"time"
 
@@ -13,7 +14,8 @@ import (
 )
 
 type App struct {
-	Ctx context.Context
+	Ctx  context.Context
+	Live service.Live
 }
 
 type Server struct {
@@ -22,7 +24,8 @@ type Server struct {
 
 func New(ctx context.Context, conf *conf.App) *Server {
 	app := App{
-		Ctx: ctx,
+		Ctx:  ctx,
+		Live: *service.NewLive(ctx, conf.Live),
 	}
 
 	e := engine(conf.Debug)

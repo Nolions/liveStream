@@ -16,6 +16,13 @@ type App struct {
 	Debug        bool   `mapstructure:"debug"`
 	ReadTimeout  string `mapstructure:"read_timeout"`
 	WriteTimeout string `mapstructure:"write_timeout"`
+	Live         Live   `mapstructure:"live"`
+}
+
+type Live struct {
+	RtmpUrl string `mapstructure:"rtmp_url"`
+	AppName string `mapstructure:"app_name"`
+	Secret  string `mapstructure:"secret"`
 }
 
 func init() {
