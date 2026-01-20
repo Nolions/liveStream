@@ -21,8 +21,10 @@ type App struct {
 
 type Live struct {
 	RtmpUrl string `mapstructure:"rtmp_url"`
+	HLSUrl  string `mapstructure:"hls_url"`
 	AppName string `mapstructure:"app_name"`
 	Secret  string `mapstructure:"secret"`
+	Expire  int    `mapstructure:"expire"`
 }
 
 func init() {

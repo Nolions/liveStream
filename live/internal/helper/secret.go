@@ -6,9 +6,9 @@ import (
 	"strings"
 )
 
-// SecretMD5
+// EncryptMD5
 // MD5加密
-func SecretMD5(elems []string) string {
+func EncryptMD5(elems []string) string {
 	str := strings.Join(elems, "")
 	hash := md5.Sum([]byte(str))
 
