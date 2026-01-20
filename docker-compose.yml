@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   nginx-rtmp-service:
-    build: .
+    build: ./docker/nginx_rtmp
     container_name: nginx-rtmp-service
     ports:
       - "${NGINX_RTMP_PORT}:1935"

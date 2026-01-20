@@ -1,9 +1,9 @@
 # 設定 docker-compose 檔案的路徑
-DOCKER_COMPOSE_FILE = docker/docker-compose.yml
+DOCKER_COMPOSE_FILE = docker-compose.yml
 
 .PHONY: run stop logs clean ps
 
-stop:
+stop_nginx_rtmp:
 	docker compose -f $(DOCKER_COMPOSE_FILE) stop nginx-rtmp-service
 
 run_nginx_rtmp:

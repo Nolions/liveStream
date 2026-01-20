@@ -184,6 +184,6 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,intellij+all,macos,windows,linux
 
-/docker/.env
-/docker/nginx.conf
-/docker/hls_output
+/docker/nginx_rtmp/nginx.conf
+/hls_output
+.env
