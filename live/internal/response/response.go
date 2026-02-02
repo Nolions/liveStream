@@ -38,9 +38,19 @@ func HandleNoAllowMethod(c *gin.Context) {
 	return
 }
 
+func HandleBadRequest(c *gin.Context, errMsg string) {
+	handleErr := BadRequest(errMsg)
+	c.JSON(handleErr.StatusCode, handleErr)
+	return
+}
+
 const (
-	SUCCESS         = 0
+	SUCCESS = 0
+
+	BAD_REQUEST     = 4000
 	PARAMETER_ERROR = 4001
+	IP_ILLEGAL      = 4002
+	SIHNATURE_FAIL  = 4003
 
 	NOT_FOUND = 4041
 
@@ -89,6 +99,10 @@ func DeleteFail() *HttpResp {
 // Not Allow Method
 func NoAllowMethod() *HttpResp {
 	return newHttpException(http.StatusMethodNotAllowed, NO_ALLOW_METHDO, http.StatusText(http.StatusMethodNotAllowed), nil)
+}
+
+func BadRequest(msg string) *HttpResp {
+	return newHttpException(http.StatusBadRequest, BAD_REQUEST, msg, nil)
 }
 
 func newHttpException(statusCode int, errorCode int, msg string, data []string) *HttpResp {
